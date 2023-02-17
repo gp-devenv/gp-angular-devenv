@@ -47,18 +47,21 @@ fi
 
 docker buildx build --no-cache \
                     --platform linux/arm64,linux/amd64 \
+                    --build-arg ANGULAR_VERSION=$3 \
                     -t $IMAGE \
                     -t $IMAGE_VERSION \
                     -t $IMAGE_VERSION_MAJOR \
                     -t $IMAGE_VERSION_MINOR \
                     -f "$DOCKERFILE" .
 docker buildx build --platform linux/arm64 \
+                    --build-arg ANGULAR_VERSION=$3 \
                     -t $IMAGE-arm64 \
                     -t $IMAGE_VERSION-arm64 \
                     -t $IMAGE_VERSION_MAJOR-arm64 \
                     -t $IMAGE_VERSION_MINOR-arm64 \
                     -f "$DOCKERFILE" .
 docker buildx build --platform linux/amd64 \
+                    --build-arg ANGULAR_VERSION=$3 \
                     -t $IMAGE-amd64 \
                     -t $IMAGE_VERSION-amd64 \
                     -t $IMAGE_VERSION_MAJOR-amd64 \
