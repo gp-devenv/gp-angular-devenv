@@ -40,6 +40,10 @@ if [ ! -f "$DOCKERFILE" ]; then
     exit 1
 fi
 
-docker build --no-cache -t $IMAGE -f $DOCKERFILE .
+docker build --no-cache \
+             --build-arg ANGULAR_VERSION=$3 \
+             -t $IMAGE \
+             -f $DOCKERFILE \
+             .
 
 # End

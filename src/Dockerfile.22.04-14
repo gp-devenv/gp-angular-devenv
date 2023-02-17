@@ -11,7 +11,7 @@
 # SOFTWARE.
 #
 
-FROM ghcr.io/gp-devenv/gp-angular-devenv:22.04-14-1
+FROM ghcr.io/gp-devenv/gp-node-devenv:22.04-14-1
 
 LABEL org.opencontainers.image.source=https://github.com/gp-devenv/gp-angular-devenv
 LABEL org.opencontainers.image.description "Angular dev image using ghcr.io/gp-devenv/gp-node-devenv:22.04-14-1"
@@ -23,7 +23,7 @@ ARG ANGULAR_VERSION="15"
 USER root
 
 # Update npm
-RUN npm i -g @angular/cli^$ANGULAR_VERSION
+RUN npm i -g @angular/cli@$ANGULAR_VERSION
 
 # Add chromium
 RUN add-apt-repository ppa:saiarcot895/chromium-dev && \ 
