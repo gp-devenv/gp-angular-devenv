@@ -43,16 +43,16 @@ jobs:
         run: echo $GHCR_IO_TOKEN | docker login ghcr.io -u gpfister --password-stdin
         env:
           GHCR_IO_TOKEN: ${{ secrets.ghcr_io_token }}
-      - name: Build using ghcr.io/gp-devenv/gp-node-devenv:${{ github.events.inputs.ubuntuVersion }}-${{ github.events.inputs.nodeVersion }}
-        run: (cd src && ./scripts/buildx/build.sh $UBUNTU_VERSION $NODE_VERSION $ANGULAR_VERSION)
-        env:
-          UBUNTU_VERSION: ${{ github.events.inputs.ubuntuVersion }}
-          NODE_VERSION: ${{ github.events.inputs.nodeVersion }}
-          ANGULAR_VERSION: ${{ matrix.angularVersion }}
-      - name: Push to ghcr.io/gp-devenv/gp-angular-devenv:${{ github.events.inputs.ubuntuVersion }}-${{ github.events.inputs.nodeVersion }}--${{ matrix.angularVersion }}
+      # - name: Build using ghcr.io/gp-devenv/gp-node-devenv:${{ github.event.inputs.ubuntuVersion }}-${{ github.event.inputs.nodeVersion }}
+      #   run: (cd src && ./scripts/buildx/build.sh $UBUNTU_VERSION $NODE_VERSION $ANGULAR_VERSION)
+      #   env:
+      #     UBUNTU_VERSION: ${{ github.event.inputs.ubuntuVersion }}
+      #     NODE_VERSION: ${{ github.event.inputs.nodeVersion }}
+      #     ANGULAR_VERSION: ${{ matrix.angularVersion }}
+      - name: Build and push to ghcr.io/gp-devenv/gp-angular-devenv:${{ github.event.inputs.ubuntuVersion }}-${{ github.event.inputs.nodeVersion }}--${{ matrix.angularVersion }}
         run: (cd src && ./scripts/buildx/push.sh $UBUNTU_VERSION $NODE_VERSION $ANGULAR_VERSION)
         env:
-          UBUNTU_VERSION: ${{ github.events.inputs.ubuntuVersion }}
-          NODE_VERSION: ${{ github.events.inputs.nodeVersion }}
+          UBUNTU_VERSION: ${{ github.event.inputs.ubuntuVersion }}
+          NODE_VERSION: ${{ github.event.inputs.nodeVersion }}
           ANGULAR_VERSION: ${{ matrix.angularVersion }}
 # End
