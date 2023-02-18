@@ -29,7 +29,10 @@ RUN npm i -g @angular/cli@$ANGULAR_VERSION
 RUN add-apt-repository ppa:saiarcot895/chromium-dev && \ 
     apt-get update && \
     apt-get install -y chromium-browser
-ENV CHROME_BIN=/usr/bin/chromium-browser
+RUN echo '' >> /etc/zsh/zshenv && \
+    echo '# Set CHROME_BIN' >> /etc/zsh/zshenv && \
+    echo 'export CHROME_BIN=/usr/bin/chromium-browser' >> /etc/zsh/zshenv
+RUN ln -s /usr/bin/chromium-browser /usr/bin/chromium
 
 # Switch back to user
 USER vscode
