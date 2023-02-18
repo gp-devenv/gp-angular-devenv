@@ -37,13 +37,13 @@ jobs:
         run: echo $GHCR_IO_TOKEN | docker login ghcr.io -u gpfister --password-stdin
         env:
           GHCR_IO_TOKEN: ${{secrets.ghcr_io_token}}
-      - name: Build using ghcr.io/gp-devenv/gp-node-devenv:${{ matrix.ubuntuVersion }}-${{ matrix.nodeVersion }}
-        run: (cd src && ./scripts/buildx/build.sh $UBUNTU_VERSION $NODE_VERSION $ANGULAR_VERSION)
-        env:
-          UBUNTU_VERSION: ${{ matrix.ubuntuVersion }}
-          NODE_VERSION: ${{ matrix.nodeVersion }}
-          ANGULAR_VERSION: ${{ matrix.angularVersion }}
-      - name: Push to ghcr.io/gp-devenv/gp-angular-devenv:${{ matrix.ubuntuVersion }}-${{ matrix.nodeVersion }}--${{ matrix.angularVersion }}
+      # - name: Build using ghcr.io/gp-devenv/gp-node-devenv:${{ matrix.ubuntuVersion }}-${{ matrix.nodeVersion }}
+      #   run: (cd src && ./scripts/buildx/build.sh $UBUNTU_VERSION $NODE_VERSION $ANGULAR_VERSION)
+      #   env:
+      #     UBUNTU_VERSION: ${{ matrix.ubuntuVersion }}
+      #     NODE_VERSION: ${{ matrix.nodeVersion }}
+      #     ANGULAR_VERSION: ${{ matrix.angularVersion }}
+      - name: Build and push to ghcr.io/gp-devenv/gp-angular-devenv:${{ matrix.ubuntuVersion }}-${{ matrix.nodeVersion }}--${{ matrix.angularVersion }}
         run: (cd src && ./scripts/buildx/push.sh $UBUNTU_VERSION $NODE_VERSION $ANGULAR_VERSION)
         env:
           UBUNTU_VERSION: ${{ matrix.ubuntuVersion }}
