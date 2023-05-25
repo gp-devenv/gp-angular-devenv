@@ -235,17 +235,13 @@ make sure the `vscode` is the last one activate.
 
 ## Version
 
-_`Node.js image version` correspond to the undelying base image that can be found
+_`Node.js image version` correspond to the underlying Node image that can be found
 [here](https://github.com/gp-devenv/gp-base-devenv/pkgs/container/gp-base-devenv)_
 
-|      Image      |               Base image version               |   Ubuntu    |    Node    |  Angular | amd64 | arm64 |
-| :-------------: | :--------------------------------------------: | :---------: | :--------: | :------: | :---: | :---: |
-| 22:04-14-14-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-14-14-1 | 22.04 (LTS) | 14.x (LTS) |   14.x   |   X   |   X   |
-| 22:04-16-14-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-16-14-1 | 22.04 (LTS) | 16.x (LTS) |   14.x   |   X   |   X   |
-| 22:04-18-14-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-18-14-1 | 22.04 (LTS) | 18.x (LTS) |   14.x   |   X   |   X   |
-| 22:04-14-15-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-14-15-1 | 22.04 (LTS) | 14.x (LTS) |   15.x   |   X   |   X   |
-| 22:04-16-15-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-16-15-1 | 22.04 (LTS) | 16.x (LTS) |   15.x   |   X   |   X   |
-| 22:04-18-15-1.x | ghcr.io/gp-devenv/gp-base-devenv:22.04-18-15-1 | 22.04 (LTS) | 18.x (LTS) |   15.x   |   X   |   X   |
+|                   Image                    |                    Base image version                   |   Ubuntu    |          Supported Node version          |  Supported Angular version | amd64 | arm64 |
+| :----------------------------------------: | :-----------------------------------------------------: | :---------: | :--------------------------------------: | :------------------------: | :---: | :---: |
+| 22:04-<NODE_VERSION>-<ANGULAR_VERSION>-1.x | ghcr.io/gp-devenv/gp-node-devenv:22.04-<NODE_VERSION>-1 | 22.04 (LTS) |             14.x, 16.x, 18.x             |         14.x, 15.x         |   X   |   X   |
+| 22:04-<NODE_VERSION>-<ANGULAR_VERSION>-2.x | ghcr.io/gp-devenv/gp-node-devenv:22.04-<NODE_VERSION>-2 | 22.04 (LTS) | 14.x (will be removed), 16.x, 18.x, 20.x |         14.x, 15.x         |   X   |   X   |
 
 <div id="faq" />
 
