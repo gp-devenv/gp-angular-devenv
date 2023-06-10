@@ -11,10 +11,10 @@
 # SOFTWARE.
 #
 
-FROM ghcr.io/gp-devenv/gp-node-devenv:22.04-18-2
+FROM ghcr.io/gp-devenv/gp-node-devenv:22.04-20-2
 
 LABEL org.opencontainers.image.source=https://github.com/gp-devenv/gp-angular-devenv
-LABEL org.opencontainers.image.description "Angular dev image using ghcr.io/gp-devenv/gp-node-devenv:22.04-18-2"
+LABEL org.opencontainers.image.description "Angular dev image using ghcr.io/gp-devenv/gp-node-devenv:22.04-20-2"
 LABEL org.opencontainers.image.licenses=MIT
 
 # Versions

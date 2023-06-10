@@ -26,7 +26,7 @@ jobs:
     strategy:
       matrix:
         ubuntuVersion: ['22.04']
-        nodeVersion: ['14', '16', '18']
+        nodeVersion: ['14', '16', '18', '20']
         angularVersion: ['14', '15']
     steps:
       - name: Checkout
